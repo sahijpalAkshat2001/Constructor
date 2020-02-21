@@ -1,0 +1,40 @@
+#include<iostream>
+class Dynamic_Constructor
+{
+    int a,b;
+public:
+    Dynamic_Constructor();
+    Dynamic_Constructor(int,int);
+    void Display();
+    ~Dynamic_Constructor();
+};
+
+Dynamic_Constructor::Dynamic_Constructor(int m,int n)
+{
+    this -> a = m;
+    // this points to the object of the class
+    this -> b = n;
+}
+Dynamic_Constructor :: Dynamic_Constructor(){
+   char* run_time;
+   run_time = new char{'a'};
+       std::cout << "\n"<<*run_time;
+}
+Dynamic_Constructor::~Dynamic_Constructor()
+{
+    std::cout << "\nClean!!" << std::endl;
+}
+void Dynamic_Constructor::Display(){
+    std::cout << a << "," << b;
+}
+int main(int argc, const char** argv) {
+Dynamic_Constructor* p = new Dynamic_Constructor(10,20);
+Dynamic_Constructor* o = new Dynamic_Constructor();
+p -> Display();
+delete p;
+p -> Display();
+int* p1 = new int[10];
+// new operator creates and initializes the object 
+std::cout << p1;
+return 0;
+}
